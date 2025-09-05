@@ -46,3 +46,52 @@ python manage.py test
 ## Notes / assumptions
 - Client may provide `id` (UUID) and `updated_at`. Server uses these for conflict resolution.
 - server_id gets assigned upon successful server-side acceptance.
+
+Examples:
+
+Get all tasks:
+
+GET http://127.0.0.1:8000/api/tasks/
+
+
+Create task:
+
+POST http://127.0.0.1:8000/api/tasks/
+Content-Type: application/json
+
+{
+  "title": "Buy milk",
+  "description": "Get from nearby store"
+}
+
+
+Update task:
+
+PUT http://127.0.0.1:8000/api/tasks/<task-id>/
+Content-Type: application/json
+
+{
+  "title": "Buy milk and eggs",
+  "completed": true
+}
+
+
+Delete task:
+
+DELETE http://127.0.0.1:8000/api/tasks/<task-id>/
+
+
+Trigger sync:
+
+POST http://127.0.0.1:8000/api/sync/
+
+
+Check sync status:
+
+GET http://127.0.0.1:8000/api/status/
+
+
+Health check:
+
+GET http://127.0.0.1:8000/api/health/
+
